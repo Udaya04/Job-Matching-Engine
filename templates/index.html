@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Matching Engine | AI-Powered</title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <div class="glass-card animate__animated animate__fadeInUp">
+        <div class="header">
+            <div class="badge">AI-MATCHING ENGINE</div>
+            <h1>Find Best Jobs For You</h1>
+            <p>Enter your details to discover matches from our database.</p>
+        </div>
+
+        <form action="/match-ui" method="post" id="jobForm">
+            <div class="form-grid">
+                
+                <div class="input-group full-width">
+                    <label>Technical Skills</label>
+                    <input name="skills" class="tag-input" placeholder="e.g. Python, SQL" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Experience (Years)</label>
+                    <input type="number" name="experience_years" placeholder="0" min="0" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Expected Salary ($)</label>
+                    <input type="number" name="expected_salary" placeholder="e.g. 70000" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Preferred Locations</label>
+                    <input type="text" name="locations" placeholder="Remote, Bangalore..." required>
+                </div>
+
+                <div class="input-group">
+                    <label>Preferred Roles</label>
+                    <input type="text" name="roles" placeholder="Java Developer, Data Scientist..." required>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn" id="submitBtn">
+                <span class="btn-text">Find Matching Jobs</span>
+                <span class="btn-icon">→</span>
+            </button>
+        </form>
+
+        {% if results %}
+        <div class="results-container animate__animated animate__fadeIn">
+            <div class="divider"></div>
+            <h2 class="results-title">{{ message }}</h2>
+            <div class="job-list">
+                {% for job in results %}
+                <div class="job-card">
+                    <div class="job-info">
+                        <h3>{{ job.role }}</h3>
+                        <p class="company">🏢 {{ job.company }}</p>
+                        <p class="location">📍 {{ job.location }}</p>
+                    </div>
+                    <div class="job-meta">
+                        <span class="salary-tag">${{ job.salary }}</span>
+                        <button class="apply-small">Apply</button>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify"></script>
+    <script>
+        // Initialize Skills Input
+        const input = document.querySelector('.tag-input');
+        new Tagify(input, {
+            whitelist: ["Python", "JavaScript", "React", "FastAPI", "SQL", "Java", "Docker"],
+            dropdown: { enabled: 0 } 
+        });
+
+        // Loading state
+        document.getElementById('jobForm').onsubmit = function() {
+            const btn = document.getElementById('submitBtn');
+            btn.classList.add('loading');
+            btn.querySelector('.btn-text').innerText = "Matching with Database...";
+        };
+    </script>
+</body>
+</html>

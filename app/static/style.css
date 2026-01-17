@@ -1,0 +1,128 @@
+/* Variables for easy customization */
+:root {
+    --primary: #6366f1;
+    --primary-dark: #4f46e5;
+    --bg-main: #f8fafc;
+    --glass-bg: rgba(255, 255, 255, 0.85);
+    --text-dark: #1e293b;
+    --text-muted: #64748b;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', -apple-system, sans-serif;
+    background-color: var(--bg-main);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Background Blobs */
+.background-blobs {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: -1;
+}
+.blob {
+    position: absolute;
+    filter: blur(80px);
+    border-radius: 50%;
+    opacity: 0.4;
+}
+.blob-1 { width: 400px; height: 400px; background: #818cf8; top: -10%; left: -5%; }
+.blob-2 { width: 450px; height: 450px; background: #f472b6; bottom: -10%; right: -5%; }
+
+/* Glass Card */
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 28px;
+    padding: 40px;
+    width: 90%;
+    max-width: 650px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
+    margin: 20px;
+}
+
+.badge {
+    display: inline-block;
+    background: #e0e7ff;
+    color: var(--primary);
+    font-size: 11px;
+    font-weight: 800;
+    padding: 5px 12px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+}
+
+.header h1 { margin: 0; color: var(--text-dark); font-size: 28px; }
+.header p { color: var(--text-muted); font-size: 14px; margin-bottom: 30px; }
+
+/* Grid Layout */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+.full-width { grid-column: span 2; }
+
+label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 6px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+/* Button */
+.submit-btn {
+    width: 100%;
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 16px;
+    border-radius: 14px;
+    margin-top: 24px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.submit-btn:hover { background: var(--primary-dark); transform: translateY(-1px); }
+
+/* Results Styling */
+.divider { height: 1px; background: #e2e8f0; margin: 30px 0; }
+.results-title { font-size: 16px; margin-bottom: 16px; }
+
+.job-card {
+    background: white;
+    padding: 16px;
+    border-radius: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    border: 1px solid #f1f5f9;
+}
+.job-info h3 { margin: 0; font-size: 16px; color: var(--primary); }
+.company { font-size: 13px; font-weight: 600; margin: 2px 0; }
+.salary-tag { background: #dcfce7; color: #166534; padding: 4px 8px; border-radius: 6px; font-size: 12px; font-weight: 700; }

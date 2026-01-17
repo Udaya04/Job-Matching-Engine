@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Matching Results</title>
+</head>
+<body>
+    <div class="glass-card animate__animated animate__fadeIn">
+        <h2>Top Matches for {{ role }}</h2>
+        <p>Based on: {{ ", ".join(skills) }} in {{ location }}</p>
+
+        <div class="results-list">
+            <div class="job-card">
+                <h3>Senior {{ role }}</h3>
+                <p><strong>Company:</strong> TechCorp Inc.</p>
+                <p><strong>Match Score:</strong> 95%</p>
+                <button class="apply-btn">Apply Now</button>
+            </div>
+        </div>
+        
+        <a href="/" style="display:block; margin-top:20px; text-align:center;">← Search Again</a>
+    </div>
+</body>
+</html>

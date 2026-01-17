@@ -1,0 +1,92 @@
+[
+  {
+    "job_id": "J001",
+    "title": "Backend Developer",
+    "company": "TechCorp",
+    "required_skills": ["Python", "FastAPI", "PostgreSQL"],
+    "experience_required": "0-2 years",
+    "location": "Bangalore",
+    "salary_range": [600000, 1000000]
+  },
+  {
+    "job_id": "J002",
+    "title": "Full Stack Developer",
+    "company": "WebWorks",
+    "required_skills": ["Python", "React", "Docker"],
+    "experience_required": "1-3 years",
+    "location": "Hyderabad",
+    "salary_range": [500000, 900000]
+  },
+  {
+    "job_id": "J003",
+    "title": "Python Developer",
+    "company": "DataSoft",
+    "required_skills": ["Python", "Django", "MySQL"],
+    "experience_required": "0-1 years",
+    "location": "Bangalore",
+    "salary_range": [400000, 700000]
+  },
+  {
+    "job_id": "J004",
+    "title": "Software Engineer",
+    "company": "InnovateX",
+    "required_skills": ["Java", "Spring Boot", "SQL"],
+    "experience_required": "2-4 years",
+    "location": "Pune",
+    "salary_range": [800000, 1200000]
+  },
+  {
+    "job_id": "J005",
+    "title": "Frontend Developer",
+    "company": "UIWorks",
+    "required_skills": ["HTML", "CSS", "JavaScript", "React"],
+    "experience_required": "1-3 years",
+    "location": "Bangalore",
+    "salary_range": [500000, 850000]
+  },
+  {
+    "job_id": "J006",
+    "title": "DevOps Engineer",
+    "company": "CloudNine",
+    "required_skills": ["Docker", "Kubernetes", "AWS", "Linux"],
+    "experience_required": "2-5 years",
+    "location": "Hyderabad",
+    "salary_range": [900000, 1500000]
+  },
+  {
+    "job_id": "J007",
+    "title": "Machine Learning Engineer",
+    "company": "AI Labs",
+    "required_skills": ["Python", "Machine Learning", "Pandas", "NumPy"],
+    "experience_required": "1-3 years",
+    "location": "Bangalore",
+    "salary_range": [1000000, 1800000]
+  },
+  {
+    "job_id": "J008",
+    "title": "Data Analyst",
+    "company": "InsightCorp",
+    "required_skills": ["Python", "SQL", "Power BI", "Excel"],
+    "experience_required": "0-2 years",
+    "location": "Delhi",
+    "salary_range": [500000, 900000]
+  },
+  {
+    "job_id": "J009",
+    "title": "Cloud Engineer",
+    "company": "SkyNet Solutions",
+    "required_skills": ["AWS", "Terraform", "Docker", "Linux"],
+    "experience_required": "2-4 years",
+    "location": "Bangalore",
+    "salary_range": [900000, 1400000]
+  },
+  {
+    "job_id": "J010",
+    "title": "Junior Software Developer",
+    "company": "StartUpHub",
+    "required_skills": ["Python", "Git", "OOP"],
+    "experience_required": "0-1 years",
+    "location": "Remote",
+    "salary_range": [350000, 600000]
+  }
+]
