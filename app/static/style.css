@@ -125,4 +125,5 @@ input:focus {
 }
 .job-info h3 { margin: 0; font-size: 16px; color: var(--primary); }
 .company { font-size: 13px; font-weight: 600; margin: 2px 0; }
+.match-score { font-size: 13px; font-weight: 600; margin: 2px 0; color: #059669; }
 .salary-tag { background: #dcfce7; color: #166534; padding: 4px 8px; border-radius: 6px; font-size: 12px; font-weight: 700; }
