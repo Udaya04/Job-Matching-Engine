@@ -177,5 +177,37 @@
       800000,
       1200000
     ]
+  },
+  {
+    "job_id": "J12",
+    "title": "software developer",
+    "company": "TechCompany",
+    "required_skills": [
+      "React",
+      "Python",
+      "SQL"
+    ],
+    "experience_required": "02",
+    "location": "banglore",
+    "salary_range": [
+      800000,
+      1200000
+    ]
+  },
+  {
+    "job_id": "J13",
+    "title": "senior developer",
+    "company": "google",
+    "required_skills": [
+      "Docker",
+      "React",
+      "FastAPI"
+    ],
+    "experience_required": "4",
+    "location": "hyderabad",
+    "salary_range": [
+      40000,
+      80000
+    ]
   }
 ]
