@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Matching Engine | Post a Job</title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="icon" href="/static/favicon.ico">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <div class="glass-card animate__animated animate__fadeInUp">
+        <div class="header">
+            <div class="badge">RECRUITER PORTAL</div>
+            <h1>Post a Job Opening</h1>
+            <p>Enter job details to add to our database.</p>
+        </div>
+
+        <form action="/add-job" method="post" id="jobForm">
+            <div class="form-grid">
+                
+                <div class="input-group full-width">
+                    <label>Job Title</label>
+                    <input name="title" placeholder="e.g. Senior Python Developer" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Company</label>
+                    <input name="company" placeholder="e.g. TechCorp Inc." required>
+                </div>
+
+                <div class="input-group">
+                    <label>Location</label>
+                    <input name="location" placeholder="e.g. Bangalore" required>
+                </div>
+
+                <div class="input-group full-width">
+                    <label>Required Skills</label>
+                    <input name="skills" class="tag-input" placeholder="e.g. Python, FastAPI, SQL" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Experience Required</label>
+                    <input name="experience_required" placeholder="e.g. 2-4 years" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Salary Min ($)</label>
+                    <input type="number" name="salary_min" placeholder="e.g. 800000" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Salary Max ($)</label>
+                    <input type="number" name="salary_max" placeholder="e.g. 1200000" required>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn" id="submitBtn">
+                <span class="btn-text">Post Job</span>
+                <span class="btn-icon">📝</span>
+            </button>
+        </form>
+
+        {% if message %}
+        <div class="success-message animate__animated animate__fadeIn">
+            <p>{{ message }}</p>
+        </div>
+        {% endif %}
+
+        <div class="back-link">
+            <a href="/">← Back to Home</a>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify"></script>
+    <script>
+        // Initialize Skills Input
+        const input = document.querySelector('.tag-input');
+        new Tagify(input, {
+            whitelist: ["Python", "JavaScript", "React", "FastAPI", "SQL", "Java", "Docker"],
+            dropdown: { enabled: 0 } 
+        });
+
+        // Loading state
+        document.getElementById('jobForm').onsubmit = function() {
+            const btn = document.getElementById('submitBtn');
+            btn.classList.add('loading');
+            btn.querySelector('.btn-text').innerText = "Posting Job...";
+        };
+    </script>
+</body>
+</html>

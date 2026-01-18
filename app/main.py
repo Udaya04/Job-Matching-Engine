@@ -25,9 +25,13 @@ except FileNotFoundError:
 # --- 4. ROUTES ---
 @app.get("/", response_class=HTMLResponse)
 async def home(request: Request):
+    return templates.TemplateResponse("selection.html", {"request": request})
+
+@app.get("/candidate", response_class=HTMLResponse)
+async def candidate_form(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
 
-@app.post("/match-ui")
+@app.post("/match")
 async def match_jobs(
     request: Request, 
     skills: str = Form(...), 
@@ -86,4 +90,46 @@ async def match_jobs(
         "request": request,
         "results": matches,
         "message": f"Top {len(matches)} matches found!"
+    })
+
+@app.get("/recruiter", response_class=HTMLResponse)
+async def recruiter_form(request: Request):
+    return templates.TemplateResponse("recruiter.html", {"request": request})
+
+@app.post("/add-job")
+async def add_job(
+    request: Request,
+    title: str = Form(...),
+    company: str = Form(...),
+    skills: str = Form(...),
+    experience_required: str = Form(...),
+    location: str = Form(...),
+    salary_min: int = Form(...),
+    salary_max: int = Form(...)
+):
+    # Parse skills
+    try:
+        skills_list = [item['value'] for item in json.loads(skills)]
+    except:
+        skills_list = [s.strip() for s in skills.split(',')]
+    
+    # Create new job
+    new_job = {
+        "job_id": f"J{len(jobs_database) + 1}",
+        "title": title,
+        "company": company,
+        "required_skills": skills_list,
+        "experience_required": experience_required,
+        "location": location,
+        "salary_range": [salary_min, salary_max]
+    }
+    
+    # Add to database and save
+    jobs_database.append(new_job)
+    with open(JOBS_FILE, "w") as f:
+        json.dump(jobs_database, f, indent=2)
+    
+    return templates.TemplateResponse("recruiter.html", {
+        "request": request,
+        "message": "Job added successfully!"
     })
